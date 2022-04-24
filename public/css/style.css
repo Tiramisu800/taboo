@@ -1,0 +1,520 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+header{
+    width: 100%;
+    display: flex;
+
+}
+.header_logo{
+    margin-top: 30px;
+    margin-left: 10.5%;
+
+
+
+}
+body{
+    background-color: #E8E2FF;
+    margin: 0;
+
+}
+nav{
+    margin-top: 45px;
+    margin-left: 2%;
+}
+.sign, .sign1{
+
+    justify-content: space-between;
+    background-color:#E8E2FF;
+    border-color: #6F5ACD;
+    color: black;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 0px;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+    font-weight:bold;
+}
+.sign1{
+    ;
+}
+.sign .sign1:hover {
+    background-color: palevioletred; /* Green */
+    color: white;
+}
+.topnav a{
+    color:#6F5ACD;
+    text-align: center;
+    padding: 15px 36px;
+    font-size: 23px;
+    font-weight:bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+
+}
+.topnav a:hover{
+    color: #2B1392;
+}
+.topnav .icon{
+    display: none;
+}
+
+@media screen and (max-width:1200px){
+    nav{
+        margin-left: 20%;
+    }
+}
+@media screen and (max-width:1105px){
+    nav{
+        margin-left: 10%;
+    }
+}
+@media screen and (max-width:1000px){
+    .topnav a{
+        display: none;
+    }
+    .topnav a.icon{
+        float: right;
+        margin-top: -17px;
+        display: block;
+        color: #2B1392 ;
+        font-size: 25px ;
+    }
+
+    nav{
+        width: 100%;
+    }
+    .topnav.responsive{
+        position: relative;
+        top: 50px;
+        left: -200px;
+
+
+    }
+    header .topnav.responsive{
+        height: 340px;
+    }
+    .topnav.responsive a.icon{
+        position: absolute;
+        top: -50px;
+        right: -200px;
+
+    }
+    .topnav.responsive a{
+        float: none;
+        display: block;
+        text-align:left;
+    }
+
+
+}
+
+/* hero section */
+.container1 {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+}
+
+
+.container1 .img-box {
+    width: 70%;
+    margin-top: -20px;
+}
+
+.container1  .img-box img {
+    width: 75%;
+
+}
+
+.container1  .detail-box {
+    width: 70%;
+
+}
+
+
+.container1 .detail-box .detail-container {
+    padding-left: 250px;
+    padding-bottom: 80px;
+}
+.container1 .detail-box .detail-container h1 {
+    font-size: 80px;
+    font-weight:bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:#6F5ACD ;
+}
+.detail-container span{
+    color: #2B1392;
+}
+.btn{
+    border-color:#FF93DD;
+    background-color: #FF93DD;
+    padding: 13px 13px;
+    text-align: center;
+    text-decoration: none;
+    font-weight:bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:white ;
+    font-size: 25px;
+
+    margin-right: 50px;
+    border-radius: 30px;
+    margin-top: 5%;
+    width: 50%;
+    box-shadow: none;
+}
+  /*WHO*/
+   body{
+    background-color: #E8E2FF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+.content{
+    position: relative;
+    padding: 0px 150px 200px 150px;
+    
+}
+.content .title{
+    position: relative;
+    color: #6F5ACD;
+    line-height: 90px;
+    font-size: 55px;
+    margin-top: 110px;
+}
+
+
+.content .textbox{
+    position: relative;
+    color: #2D2D2D;
+    font-size: 20px;
+    align-content: center;
+    width: 42%;
+    margin-top: 20px;
+}
+.content .title .textbox{
+    padding: 100px;
+
+}
+.content .textbox span{
+    color: #2D2D2D;
+    font-weight: 700;
+    color: #6652bd;
+}
+.image img{
+    position: relative;
+    margin-top: 100px;
+    width: 490px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+
+    max-width: 100%;
+    height: auto;
+}
+
+.chart{
+    align-items: center;
+    
+}
+
+.chart img{
+    position: absolute;
+    width: 750px;
+    right: 8%;
+    bottom: 10%;
+}
+.chart p {
+    position: absolute;
+    font-size: 15px;
+    color: #2D2D2D;
+    float: right;
+    right: 5%;
+    bottom: 5%;
+    width: 40%;
+
+}
+@media (max-width: 576px) {
+    .container1  {
+        flex-direction: column;
+    }
+
+    .container1 .img-box {
+
+        width: 90%;
+    }
+
+    .container1 .detail-box {
+        width: 97%;
+
+    }
+
+    .container1 .detail-box .detail-container {
+        padding-left: 0;
+        padding-top: 35px;
+    }
+
+ 
+}
+
+@media (max-width: 768px) {
+
+    .container1 {
+        width: 95%;
+    }
+
+    .container1 .detail-box {
+        padding-bottom: 125px;
+    }
+
+  
+
+  
+
+}
+ 
+
+.mission{
+   background-color: #6F5ACD; 
+
+   height: 150%;
+   display: flex;
+   flex-flow: row wrap;
+   text-align: center; 
+   justify-content: center;
+}
+
+.infa{
+	background: #543eb5;
+	flex: 0 15%;
+
+	
+	height: 325px;
+	width: 200px ;
+
+	padding: 30px;
+	margin: 15px;
+
+	object-fit: cover;
+	object-position: center;
+	position: relative;
+
+	border-radius: 75px;
+    border: 2px solid #6e5dba;
+	box-shadow: 5px 5px 5px -5px rgba(218, 199, 246, 0.6);
+}
+
+form {
+    width: 40%;
+    margin: 60px auto;
+    background: #efefef;
+    padding: 60px 120px 80px 120px;
+    text-align: center;
+    -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    position: relative;
+    margin: 40px 0px;
+}
+
+.label-txt {
+    position: absolute;
+    top: -1.6em;
+    padding: 10px;
+    font-family: sans-serif;
+    font-size: .8em;
+    letter-spacing: 1px;
+    color: rgb(120,120,120);
+    transition: ease .3s;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.line-box {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: #BCBCBC;
+}
+
+.line {
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    transition: ease .6s;
+}
+
+.input:focus + .line-box .line {
+    width: 100%;
+}
+
+.label-active {
+    top: -3em;
+}
+ /*Main.Missions*/
+.content2{
+    background-color: #6F5ACD;
+}
+.imgcss{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+    width: 1275px;
+    border-radius: 75px;
+
+    max-width: 100%;
+    height: auto;
+}
+
+/*Main.How it work*/
+.content3{
+    align-items: center;
+    justify-content: center;
+    padding-left: 100px;
+    padding: 50px;
+}
+.titwork{
+    color: #7C6ACD;
+    font-size: 40px;
+    padding-left: 40px;
+}
+.works{
+    display: flex;
+}
+.textblock{
+    display: table;
+    width: 50%;
+
+    border-collapse: separate;
+    border-spacing: 30px;
+}
+.row{
+    display: table-row;
+}
+.block{
+    display: table-cell;
+    width: 33.3%;
+    background-color: #7C6ACD;
+
+    vertical-align: top;
+    padding: 0;
+
+    border-radius: 25px;
+    padding: 30px;
+    margin: 15px;
+
+    height: 175px;
+    width: 180px;
+}
+.head{
+    font-size: 22px;
+    color: #FDB2E5;
+}
+.info{
+    font-size: 20px;
+    color: #E8E2FF;
+}
+
+/*Join us*/
+.join{
+    display: flex;
+    padding-left: 120px;
+}
+.col{
+    flex: 33%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.Jhead{
+    color: #6F5ACD;
+    font-size:70px;
+}
+.text{
+    color: #1E134D;
+    font-size: 26px;
+}
+
+/*Prefooter image*/
+.prefoot{
+    background-color: #6f5acd;
+    padding: 50px;
+}
+.PreFimg{
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 700px;
+    object-position: center;
+
+    max-width: 100%;
+    height: auto;
+}
+
+/*Footer*/
+.content5{
+    background-color: #F7E3EE;
+    padding: 20px;
+}
+.footer{
+    display: flex;
+}
+.f{
+    flex: 0 20%;
+}
+
+.tt{
+    display: table;
+    width: 100%;
+    padding-left: 150px;
+    padding-bottom: 25px;
+}
+.col1{
+    display: table-cell;
+    width: 25%;
+    color: #737373;
+    font-size: 18px;
+
+    padding: 10px;
+}
+.col2{
+    display: table-cell;
+    width: 25%;
+    color: #737373;
+    font-size: 18px;
+
+    padding: 10px;
+}
+
+
+
+
