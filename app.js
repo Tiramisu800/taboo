@@ -11,11 +11,26 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
+const mongoose = require('mongoose')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+//--------Database Mongoose---------------
+mongoose.connect('mongodb://localhost/reglog')
+
+const User = mongoose.Schema({//Schema of model
+    id: String,
+    username: {
+        type: String,
+        default: "user"
+    }
+})
+
+const MyModel = mongoose.model('User', User, 'Users'); //created model (<name of model>,<schema of model>,<to db's collection>)
+//-----------------------------------------
 
 app.get('/1', function(req, res) {
     res.render('main.ejs');
@@ -23,6 +38,8 @@ app.get('/1', function(req, res) {
 app.get('/prof', function(req, res) {
     res.render('profmain.ejs');
 });
+
+
 
 const initializePassport = require('./passport-config')
 initializePassport(
