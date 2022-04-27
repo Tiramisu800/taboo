@@ -1,115 +1,132 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-}
+require('dotenv').config()
 
-const express = require('express')
-const app = express()
-const port = 3000
-const bodyParser = require("body-parser");
-const bcrypt = require('bcrypt')
+//Requests
+const express =require('express')
+const mongoose = require('mongoose')
+
+   /* for to validate and authentication*/
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
+const User = require('./modules/User')
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+const bcrypt = require('bcrypt')
 
-app.get('/1', function(req, res) {
-    res.render('main.ejs');
-});
-app.get('/prof', function(req, res) {
-    res.render('profmain.ejs');
-});
+const {
+    checkAuthenticated,
+    checkNotAuthenticated
+} = require('./middlewares/auth')
+   /*------------------------------------------*/
 
+const app = express()
+
+
+
+//Find users
 const initializePassport = require('./passport-config')
+const {check} = require("express-validator");
 initializePassport(
     passport,
-    email => users.find(user => user.email === email),
-    id => users.find(user => user.id === id)
+    async(email)=>{
+        const userFound = await User.findOne({email})
+        return userFound
+    },
+    async(id) =>{
+        const userFound = await User.findOne({_id: id})
+        return userFound
+    }
 )
 
-const users = []
 
+
+///for css in ejs
 app.set('view-engine', 'ejs')
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({extended: true}))
+
 app.use(flash())
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
 }))
-app.use(passport.initialize());
-app.use(passport.session( ));
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(methodOverride('_method'))
+
 app.use(express.static(__dirname + '/public'));
 
-
-
-//-------------------------------------------
-// Passport JS
-app.get('/', checkAuthenticated, (req, res) => {
-    res.render('profile.ejs', { name: req.user.name })
-})
-
-
-app.get('/sign', checkNotAuthenticated, (req, res) => {
-    res.render('signin.ejs');
-})
-
-app.post('/sign',checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/sign',
-    failureFlash: true
-}))
-
-app.get('/register', checkNotAuthenticated, (req, res)=> {
-    res.render('signup.ejs');
+app.get('/prof', (req, res) => {
+    res.render('profmain.ejs');
+});
+app.get('/', (req, res) => {
+    res.render('main.ejs');
 });
 
-app.post('/register', checkNotAuthenticated, async (req, res) => {
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        users.push({
-            id: Date.now().toString(),
-            name: req.body.name,
-            email: req.body.email,
-            password: hashedPassword
-        })
-        res.redirect('/sign')
-    } catch {
-        res.redirect('/register')
+///---Authenticated or not???---///
+
+app.get('/logout', checkAuthenticated, (req,res)=>{
+    res.render("profile.ejs", { name: req.user.name })//GO TO PROFILE!!!! NOT MAIN
+})
+app.get('/log',checkNotAuthenticated, (req,res)=>{
+    res.render('signin.ejs')
+})
+app.get('/reg',checkNotAuthenticated, (req,res)=>{
+    res.render('signup.ejs')
+})
+
+
+   //---Login case---//
+app.post('/log',checkNotAuthenticated, passport.authenticate('local',{
+    successRedirect: '/logout',
+    failureRedirect: '/log',
+    failureFlash: true,
+})
+)
+
+
+   //---Register case---//
+app.post('/reg', checkNotAuthenticated, async (req,res)=>{
+    const userFound = await User.findOne({email: req.body.email})
+
+    if(userFound){
+        req.flash('error', 'User already exist (¬-¬)')
+        res.redirect('/reg')
+    }
+    else{
+        try{
+            const hashedPassword = await bcrypt.hash(req.body.password, 10)
+            const user = new User({
+                name: req.body.name,
+                email: req.body.email,
+                password: hashedPassword
+            })
+
+            await user.save() //Add to DB
+            res.redirect('/log')
+
+        }catch (e){
+            console.log(e)
+            res.redirect('reg')
+        }
     }
 })
 
-app.delete('/logout', (req, res) => {
+   //---Log out---//
+app.delete('/logout', (req,res)=>{
     req.logOut()
-    res.redirect('/sign')
+    res.redirect('/log')
+} )
+
+
+
+///---MongoDB connect---///
+mongoose.connect('mongodb://localhost/reglog', {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+}).then(()=>{
+    app.listen(3000, ()=>{
+        console.log("Server is running")
+    })
 })
-
-function checkAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next()
-    }
-
-    res.redirect('/sign')
-}
-
-function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return res.redirect('/')
-    }
-    next()
-}
-
-
-app.listen(port)
-
-
-
-
-
-
 

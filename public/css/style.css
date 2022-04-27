@@ -515,6 +515,31 @@ label {
     padding: 10px;
 }
 
+/*Login*/
+.authbtn{
+    font-size: 35px;
+    border-radius: 10px;
+    border: 2px solid #1E134D;
+    width: 150px;
+    height: 50px;
+    color: #543eb5;
+}
+.authbtn:hover{
+    border: 2px solid #ff93dd;
+    background-color: rgba(84, 62, 181, 0.9);
+    color: whitesmoke;
+}
+input{
+    border-radius: 10px;
+    font-size: 26px;
+    border: 2px solid #1E134D;
+}
+.auth{
+    color: #543eb5;
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+
 
 
 
