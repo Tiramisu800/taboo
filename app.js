@@ -1,60 +1,132 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-}
+require('dotenv').config()
 
-const port = 3000
-const express = require('express')
+//Requests
+const express =require('express')
+const mongoose = require('mongoose')
+
+   /* for to validate and authentication*/
+const passport = require('passport')
+const flash = require('express-flash')
+const session = require('express-session')
+const methodOverride = require('method-override')
+const User = require('./modules/User')
+
+const bcrypt = require('bcrypt')
+
+const {
+    checkAuthenticated,
+    checkNotAuthenticated
+} = require('./middlewares/auth')
+   /*------------------------------------------*/
+
 const app = express()
 
-const bodyParser = require("body-parser");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
-const mongoose = require('mongoose')
-const authRouter = require('./Router') //import router
 
 
-app.get('/1', function(req, res) {
-    res.render('main.ejs');
-});
-app.get('/prof', function(req, res) {
-    res.render('profmain.ejs');
-});
+//Find users
+const initializePassport = require('./passport-config')
+const {check} = require("express-validator");
+initializePassport(
+    passport,
+    async(email)=>{
+        const userFound = await User.findOne({email})
+        return userFound
+    },
+    async(id) =>{
+        const userFound = await User.findOne({_id: id})
+        return userFound
+    }
+)
 
-app.get('/auth/reg', (req,res)=>{
-    res.render('signup.ejs');
-});
-app.get('/auth/log', (req,res)=>{
-    res.render('signin.ejs');
-});
+
 
 ///for css in ejs
 app.set('view-engine', 'ejs')
+app.use(express.urlencoded({extended: true}))
+
+app.use(flash())
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(methodOverride('_method'))
+
 app.use(express.static(__dirname + '/public'));
-//----------------------//
+
+app.get('/prof', (req, res) => {
+    res.render('profmain.ejs');
+});
+app.get('/', (req, res) => {
+    res.render('main.ejs');
+});
+
+///---Authenticated or not???---///
+
+app.get('/logout', checkAuthenticated, (req,res)=>{
+    res.render("profile.ejs", { name: req.user.name })//GO TO PROFILE!!!! NOT MAIN
+})
+app.get('/log',checkNotAuthenticated, (req,res)=>{
+    res.render('signin.ejs')
+})
+app.get('/reg',checkNotAuthenticated, (req,res)=>{
+    res.render('signup.ejs')
+})
 
 
-app.use(express.json())
-app.use("/auth", authRouter) //use router(<url>,<router>)
+   //---Login case---//
+app.post('/log',checkNotAuthenticated, passport.authenticate('local',{
+    successRedirect: '/logout',
+    failureRedirect: '/log',
+    failureFlash: true,
+})
+)
 
-const start = async () => {
-    try{
-        //DB
-        await mongoose.connect('mongodb+srv://root:Zhak159*@cluster0.4ilsa.mongodb.net/reglog?retryWrites=true&w=majority')
 
-        //port
-        app.listen(port, ()=>console.log('server started on port ${PORT}'))
-    } catch (e){
-        console.log(e)
+   //---Register case---//
+app.post('/reg', checkNotAuthenticated, async (req,res)=>{
+    const userFound = await User.findOne({email: req.body.email})
+
+    if(userFound){
+        req.flash('error', 'User already exist (¬-¬)')
+        res.redirect('/reg')
     }
-}
+    else{
+        try{
+            const hashedPassword = await bcrypt.hash(req.body.password, 10)
+            const user = new User({
+                name: req.body.name,
+                email: req.body.email,
+                password: hashedPassword
+            })
 
-start()
+            await user.save() //Add to DB
+            res.redirect('/log')
+
+        }catch (e){
+            console.log(e)
+            res.redirect('reg')
+        }
+    }
+})
+
+   //---Log out---//
+app.delete('/logout', (req,res)=>{
+    req.logOut()
+    res.redirect('/log')
+} )
 
 
 
-
-
+///---MongoDB connect---///
+mongoose.connect('mongodb://localhost/reglog', {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+}).then(()=>{
+    app.listen(3000, ()=>{
+        console.log("Server is running")
+    })
+})
 

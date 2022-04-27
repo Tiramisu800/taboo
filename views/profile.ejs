@@ -1,4 +1,15 @@
-<h1>Hi <%= name %></h1>
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <link rel="icon" href="img/l1.png">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<%-include('header')-%>
+
 <form action="/logout?_method=DELETE" method="POST">
-    <button type="submit">Log Out</button>
+    <div class="auth">
+        <h1>Hi, <%= name %> ^^</h1>
+        <button type="submit" class="authbtn">Log Out</button>
+    </div>
 </form>
