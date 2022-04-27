@@ -4,6 +4,10 @@ require('dotenv').config()
 const express =require('express')
 const mongoose = require('mongoose')
 
+const { createServer } = require('http')
+
+const port=3000;
+
    /* for to validate and authentication*/
 const passport = require('passport')
 const flash = require('express-flash')
@@ -103,6 +107,7 @@ app.post('/reg', checkNotAuthenticated, async (req,res)=>{
             })
 
             await user.save() //Add to DB
+
             res.redirect('/log')
 
         }catch (e){
@@ -121,12 +126,23 @@ app.delete('/logout', (req,res)=>{
 
 
 ///---MongoDB connect---///
-mongoose.connect('mongodb://localhost/reglog', {
+/*mongoose.connect('mongodb://localhost/reglog', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 }).then(()=>{
     app.listen(3000, ()=>{
         console.log("Server is running")
     })
-})
+})*/
+
+mongoose.connect('mongodb+srv://root:Zhak159*@cluster0.tcmgt.mongodb.net/reglog?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+}).then(()=>console.log('MongoDb connected'))
+    .catch(e => console.log(e))
+
+const server = createServer(app)
+server.listen(port, ()=>console.log('server is up.'))
+
+
+
 
