@@ -126,14 +126,6 @@ app.delete('/logout', (req,res)=>{
 
 
 ///---MongoDB connect---///
-/*mongoose.connect('mongodb://localhost/reglog', {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-}).then(()=>{
-    app.listen(3000, ()=>{
-        console.log("Server is running")
-    })
-})*/
 
 mongoose.connect('mongodb+srv://root:Zhak159*@cluster0.tcmgt.mongodb.net/reglog?retryWrites=true&w=majority', {
     useNewUrlParser: true,
