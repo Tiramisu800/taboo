@@ -342,13 +342,7 @@ label {
     transition: ease .3s;
 }
 
-.input {
-    width: 100%;
-    padding: 10px;
-    background: transparent;
-    border: none;
-    outline: none;
-}
+
 
 .line-box {
     position: relative;
@@ -517,28 +511,92 @@ label {
 
 /*Login*/
 .authbtn{
-    font-size: 35px;
-    border-radius: 10px;
-    border: 2px solid #1E134D;
-    width: 150px;
+    display: inline-block;
+    color: #252537;
+
+    width: 280px;
     height: 50px;
-    color: #543eb5;
+
+    padding: 0 20px;
+    background: palegreen;
+    border-radius: 5px;
+
+    outline: none;
+    border: none;
+
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s linear;
+
+    margin: 7% auto;
+    letter-spacing: 0.05em;
 }
 .authbtn:hover{
     border: 2px solid #ff93dd;
     background-color: rgba(84, 62, 181, 0.9);
     color: whitesmoke;
+    animation: ani9 0.4s ease-in-out infinite alternate;
+
 }
 input{
-    border-radius: 10px;
-    font-size: 26px;
-    border: 2px solid #1E134D;
+    background: #fff;
+    color: #333;
+    padding: 14.5px 0px 15px 9px;
+    border-radius: 5px 0px 0px 5px;
+    width: 290px;
+    height: 50px;
+
+    margin-top: 2%;
+    padding: 15px;
+
+    font-size: 16px;
+    font-family: 'Abel', sans-serif;
+    color: #5E6472;
+
+    outline: none;
+    border: none;
+
+    border-radius: 0px 5px 5px 0px;
+    transition: 0.2s linear;
+
+}
+input[id="txt-input"] {width: 250px;}
+/* focus  */
+input:focus {
+    transform: translateX(-2px);
+    border-radius: 5px;
 }
 .auth{
     color: #543eb5;
     font-family: "Comic Sans MS", sans-serif;
 }
+form {
+    width: 450px;
+    min-height: 500px;
+    height: auto;
+    border-radius: 5px;
+    margin: 2% auto;
+    box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+    padding: 2%;
+    background-image: linear-gradient(-225deg, #E3FDF5 50%, #FFE6FA 50%);
+}
+#eye {
+    background: #fff;
+    color: #333;
 
+    margin: 5.9px 0 0 0;
+    margin-left: -20px;
+    padding: 15px 9px 19px 0px;
+    border-radius: 0px 5px 5px 0px;
+
+    float: right;
+    position: relative;
+    right: 1%;
+    top: -.2%;
+    z-index: 5;
+
+    cursor: pointer;
+}
 
 
 

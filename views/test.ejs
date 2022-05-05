@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Untitled</title>
+    <meta charset="utf-8">
+    <%-include('header')-%>
+    <style type="text/css">
+        table{
+            width: 90%;
+            height: 100%;
+        }
+        td:nth-child(2n) {
+            background-color: #87CEEB;
+            border-radius: 6px;
+            height: 190%;
+
+        }
+        td:nth-child(2n):hover { cursor: pointer;
+            color: #F0E68C;
+            background-color: #1E90FF;
+        }
+        .active {
+            display: table-row;
+        }
+        tr{
+            display: none;
+            height: 90%;
+        }
+        .h3{
+            height: 90px;
+            background-color: #8B4513;
+            margin: 4px;
+
+        }
+        .main
+        {
+            text-align: center;
+
+        }
+
+    </style>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+
+    <script>
+        var obj = {
+
+            "Nature": ["1a", "6b", "8b", "12a", "14a", "16a", "21b", "23b", "27a", "29a"],
+
+            "Technique": ["1b", "4a", "7a", "9a", "10b", "16b", "19a", "22a", "24a", "25b"],
+
+            "Other people": ["2a", "4b", "11a", "12b", "15a", "17a", "19b", "26a", "27b", "30a"],
+
+            "Sign systems": ["2b", "5a", "7b", "13a", "14b", "17b", "20a", "22b", "28a", "29b"],
+
+            "Artistic images": ["3a", "5b", "8a", "9b", "11b", "18a", "20b", "23a", "24b", "26b"],
+
+            "Self-development": ["3b", "6a", "10a", "13b", "15b", "18b", "21a", "25a", "28b", "30b"]
+
+        };
+
+        window.addEventListener("DOMContentLoaded", function() {
+            var table = document.querySelector("table"),
+                tr = table.querySelectorAll("tr"),
+                num = 0,
+                len = tr.length,
+                arr = [];
+            table.addEventListener("click", function(event) {
+                let el = event.target;
+                if (el.tagName == "TD") {
+                    let text = tr[num].cells[el.cellIndex < 2 ? 0 : 2].textContent.trim();
+                    arr.push(text);
+                    document.querySelector(".active").classList.remove("active");
+                    ++num;
+                    if (num < len) tr[num].classList.add("active");
+                    else Object.keys(obj).forEach(function(key) {
+                        let ar = obj[key],
+                            n = ar.length;
+                        ar = ar.reduce(function(a, b) {
+                            return a += +!!~arr.indexOf(b)
+                        }, 0);
+                        let h = document.createElement("h3");
+                        h.textContent = key + " : " + 100 / n * ar + "%";
+                        document.body.appendChild(h)
+                    })
+                }
+            })
+        });
+    </script>
+
+</head>
+
+<body>
+<div class="main">
+<h4>Choose one of two activities</h4>
+
+<table  cellpadding ="5" class="">
+    <tr class="active">
+        <td>1a </td><td>To raise and train service dogs to search for drugs </td><td>1b </td><td>Develop new models of electronic household appliances</td><br>
+    </tr>
+    <tr>
+        <td>2a </td><td>Rescue people after earthquakes </td><td>2b </td><td>Certify documents, issue power of attorney and contracts</td>
+    </tr>
+    <tr>
+        <td>3a </td><td>Sing in a music group </td><td>3b </td><td>To train intensively, improve and achieve new sports results</td>
+    </tr>
+    <tr>
+        <td>4a </td><td>To improve the operation of computers, equipment </td><td>4b </td><td>Tell about the product, convince people to buy it</td>
+    </tr>
+    <tr>
+        <td>5a </td><td>Translation of scientific texts </td><td>5b </td><td>Write stories, scripts, feuilletons</td>
+    </tr>
+    <tr>
+        <td>6a </td><td>Train your body so that it can withstand the effects of heavy physical exertion </td><td>6b </td><td>Develop measures to protect rare plants</td>
+    </tr>
+    <tr>
+        <td>7a </td><td>Repair of office equipment, computers, phones </td><td>7b </td><td>Correction of semantic and stylistic errors in texts preparing for printing</td>
+    </tr>
+    <tr>
+        <td>8a </td><td>Do floristry, decorate rooms with flowers </td><td>8b </td><td>Analyze the condition of plants and animals in a polluted environment</td>
+    </tr>
+    <tr>
+        <td>9a </td><td>Drive a car, bus, trailer, train locomotive </td><td>9b </td><td>Mix music or customize photos using a computer</td>
+    </tr>
+    <tr>
+        <td>10a </td><td>Train your sports skills daily in the gym, swimming pool, stadium, court, etc. </td><td>10b </td><td>Debugging the operation of a sports car and replacing mechanisms in case of malfunction</td>
+    </tr>
+    <tr>
+        <td>11a </td><td>Consult people on tourist routes of other cities, countries </td><td>11b </td><td>Design department store windows; design concerts and shows</td>
+    </tr>
+    <tr>
+        <td>12a </td><td>For breeding ornamental fish and caring for aquariums in offices </td><td>12b </td><td>Provide medical care to people</td>
+    </tr>
+    <tr>
+        <td>13a </td><td>Systematize the company's documentation and prepare a new one (contracts, invoices, statements, powers of attorney, etc.) </td><td>13b </td><td>Develop the skills of a beautiful gait and plastic movements for professional performance on the podium</td>
+    </tr>
+    <tr>
+        <td>14a </td><td>Study genetics, breed new plant varieties </td><td>14b </td><td>Work in archival funds, find necessary documents</td>
+    </tr>
+    <tr>
+        <td>15a </td><td>Accompany people on difficult hiking trips as an instructor </td><td>15b </td><td>Invent and practice complex acrobatic tricks, sports numbers</td>
+    </tr>
+    <tr>
+        <td>16a </td><td>Treat cats, dogs, horses, etc. </td><td>16b </td><td>To build computers</td>
+    </tr>
+    <tr>
+        <td>17a </td><td>Finding the right people, conducting recruitment in various companies </td><td>17b </td><td>Conducting financial analysis of the securities market</td>
+    </tr>
+    <tr>
+        <td>18a </td><td>Play on stage, make movies, perform stunts </td><td>18b </td><td>Train and rehearse beautiful and precise movements before a sports performance</td>
+    </tr>
+    <tr>
+        <td>19a </td><td>To establish the operation of medical laser, ultrasound equipment </td><td>19b </td><td>Teach various subjects at school, college, institute, etc.</td>
+    </tr>
+    <tr>
+        <td>20a </td><td>Calculate an economical way to deliver goods to the consumer </td><td>20b </td><td>Design of websites, books, magazines with illustrations</td>
+    </tr>
+    <tr>
+        <td>21a </td><td>Conduct constant psychological and physical preparation for competitions, tournaments, performances </td><td>21b </td><td>Participate in expeditions dedicated to the study of natural phenomena</td>
+    </tr>
+    <tr>
+        <td>22a </td><td>Build houses according to plans, conduct electrical wiring according to the project </td><td>22b </td><td>Work with financial laws and codes</td>
+    </tr>
+    <tr>
+        <td>23a </td><td>Design garden and park areas, design areas with plants </td><td>23b </td><td>Analyze the molecular composition of blood</td>
+    </tr>
+    <tr>
+        <td>24a </td><td>Design of new production equipment, residential buildings </td><td>24b </td><td>For architectural and restoration works of historical objects</td>
+    </tr>
+    <tr>
+        <td>25a </td><td>To hone the skill of performing a sports exercise, overcoming fatigue and fear </td><td>25b </td><td>Develop new models of sports simulators, bicycles and other sports equipment</td>
+    </tr>
+    <tr>
+        <td>26a </td><td>Organize holidays, act as toastmaster </td><td>26b </td><td>Conduct concert programs, announce to the audience the names of the speakers and the names of the program numbers</td>
+    </tr>
+    <tr>
+        <td>27a </td><td>To study the life of organisms using an electron microscope </td><td>27b </td><td>Provide psychological assistance to people, work on a helpline</td>
+    </tr>
+    <tr>
+        <td>28a </td><td>Process, analyze and summarize sociological data </td><td>28b </td><td>Work professionally on the beauty of your figure and appearance</td>
+    </tr>
+    <tr>
+        <td>29a </td><td>Development of plant protection products against pests and viruses </td><td>29b </td><td>Writing computer programs</td>
+    </tr>
+    <tr>
+        <td>30a </td><td>To advise people in the gym, in the pool, on the sports field </td><td>30b </td><td> To train general endurance and improve individual sports or artistic skills</td>
+    </tr>
+</table>
+</div>
+</body>
+
+</html>

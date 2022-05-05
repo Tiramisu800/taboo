@@ -66,7 +66,12 @@ app.get('/prof', (req, res) => {
 app.get('/', (req, res) => {
     res.render('main.ejs');
 });
-
+app.get('/astronaut', (req, res) => {
+    res.render('p1.ejs');
+});
+app.get('/test', (req, res) => {
+    res.render('test.ejs');
+});
 ///---Authenticated or not???---///
 
 app.get('/logout', checkAuthenticated, (req,res)=>{
@@ -126,14 +131,6 @@ app.delete('/logout', (req,res)=>{
 
 
 ///---MongoDB connect---///
-/*mongoose.connect('mongodb://localhost/reglog', {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-}).then(()=>{
-    app.listen(3000, ()=>{
-        console.log("Server is running")
-    })
-})*/
 
 mongoose.connect('mongodb+srv://root:Zhak159*@cluster0.tcmgt.mongodb.net/reglog?retryWrites=true&w=majority', {
     useNewUrlParser: true,
