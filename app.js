@@ -44,7 +44,7 @@ initializePassport(
 
 
 
-///for css in ejs
+///for css in ejs1
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({extended: true}))
 

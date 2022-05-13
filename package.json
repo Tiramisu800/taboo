@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "start": "node [yourJSfile.js]",
+    "dev": "nodemon [yourJSfile.js]"
   },
   "keywords": [],
   "author": "",
@@ -34,7 +35,7 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.16"
   },
   "description": ""
 }
