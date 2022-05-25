@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 
 const { createServer } = require('http')
 
-const port=3000;
+const port = process.env.PORT || 3000;
 
    /* for to validate and authentication*/
 const passport = require('passport')
@@ -44,7 +44,7 @@ initializePassport(
 
 
 
-///for css in ejs
+///for css in ejs1
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({extended: true}))
 
@@ -66,7 +66,12 @@ app.get('/prof', (req, res) => {
 app.get('/', (req, res) => {
     res.render('main.ejs');
 });
-
+app.get('/astronaut', (req, res) => {
+    res.render('p1.ejs');
+});
+app.get('/test', (req, res) => {
+    res.render('test.ejs');
+});
 ///---Authenticated or not???---///
 
 app.get('/logout', checkAuthenticated, (req,res)=>{
