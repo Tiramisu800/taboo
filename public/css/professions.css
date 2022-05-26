@@ -1,0 +1,176 @@
+@import url('fonts/CodecPro/stylesheet.css');
+*{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+/* Astronaut section */
+p, a, li, ul{
+    background-color: transparent;
+    color: white;
+    font-family: 'Codec Pro';
+    font-weight: 400;
+    font-style: normal;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+}
+.container1 {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.container1 .img-box {
+    position: relative;
+    width: 100%;
+    margin-bottom: 80px ;
+}
+
+.container1  .img-box img {
+    width: 85%;
+    margin-left: 85px;
+}
+
+.container1  .detail-box {
+    width: 100%;
+
+}
+.container1 .detail-box .detail-container {
+    padding-left: 150px;
+    padding-bottom: 200px;
+}
+.container1 .detail-box .detail-container h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-size: 120px;
+    font-weight: 800;
+}
+.container1 .detail-box .detail-container #tittle-1 {
+    color:#6F5ACD ;
+    margin-left: 10px;
+}
+.container1 .detail-box .detail-container #tittle-2 {
+    background-color: transparent;
+    color:white;
+    position: absolute;
+    margin-top: -160px;
+}
+.container1 .detail-box .detail-container p {
+    font-size: 25px;
+    padding-top: 10px;
+}
+
+/* Abilities & Skills */
+.container2 {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.container2 .img-box2 {
+    position: relative;
+    width: 100%;
+    margin-bottom: 90px ;
+
+}
+
+.container2  .img-box2 img {
+    width: 100%;
+}
+.container2  .detail-box2 {
+    width: 100%;
+    padding-left: 100px;
+    margin-bottom: 80px ;
+}
+.container2  .detail-box2 h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-size: 50px;
+    font-weight: 800;
+    color: #6F5ACD;
+    margin-top: 25px;
+}
+
+.container2 .detail-box2 .detail-container1 {
+    margin-top: 25px;
+}
+.container2 .detail-box2 .detail-container1 p {
+    margin-top: 20px;
+    font-size: 20px;
+}
+.container2 .detail-box2 .detail-container2 li {
+    list-style-type: revert;
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+/* Helpful links & practical task */
+.container3 {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.container3 .img-box3{
+    position: relative;
+    width: 100%;
+    margin-bottom: 90px ;
+}
+
+.container3 .img-box3 img {
+    width: 80%;
+}
+.container3  .detail-box3 {
+    width: 100%;
+    padding-left: 80px;
+    margin-bottom: 80px ;
+}
+.container3  .detail-box3 h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-size: 50px;
+    font-weight: 800;
+    color: #6F5ACD;
+    margin-top: 25px;
+}
+
+.container3 .detail-box3 .text-block1{
+    background-color: #FDB2E5;
+    border-radius:70px;
+    padding: 20px;
+    margin: 10px;
+    width: 80%;
+}
+
+.container3 .detail-box3  li {
+    list-style-type: revert;
+    font-size: 20px;
+    line-height: 30px;
+    margin-left: 20px;
+}
+span{
+    background-color: transparent;
+    font-weight: 800;
+}
+.btn{
+    background-color: #FF93DD;
+    padding: 10px 10px;
+    margin-left: 85px;
+    border-radius: 30px;
+    margin-top: 15%;
+    width: 50%;
+}
+.btn a{
+    text-decoration: none;
+    font-weight: 800;
+    font-family: 'Codec Pro';
+    color:white ;
+    font-size: 25px;
+}
+
+
+
+
+
+

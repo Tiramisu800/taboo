@@ -66,8 +66,17 @@ app.get('/prof', (req, res) => {
 app.get('/', (req, res) => {
     res.render('main.ejs');
 });
+app.get('/programmer', (req, res) => {
+    res.render('programmer.ejs');
+});
 app.get('/astronaut', (req, res) => {
-    res.render('p1.ejs');
+    res.render('astronaut.ejs');
+});
+app.get('/chef', (req, res) => {
+    res.render('chef.ejs');
+});
+app.get('/musician', (req, res) => {
+    res.render('musician.ejs');
 });
 app.get('/test', (req, res) => {
     res.render('test.ejs');
@@ -112,9 +121,7 @@ app.post('/reg', checkNotAuthenticated, async (req,res)=>{
             })
 
             await user.save() //Add to DB
-
             res.redirect('/log')
-
         }catch (e){
             console.log(e)
             res.redirect('reg')
@@ -139,7 +146,3 @@ mongoose.connect('mongodb+srv://root:Zhak159*@cluster0.tcmgt.mongodb.net/reglog?
 
 const server = createServer(app)
 server.listen(port, ()=>console.log('server is up.'))
-
-
-
-
