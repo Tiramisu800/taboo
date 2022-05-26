@@ -72,6 +72,9 @@ app.get('/astronaut', (req, res) => {
 app.get('/test', (req, res) => {
     res.render('test.ejs');
 });
+app.get('/tryit', (req, res) => {
+    res.render('tryit.ejs');
+});
 ///---Authenticated or not???---///
 
 app.get('/logout', checkAuthenticated, (req,res)=>{
