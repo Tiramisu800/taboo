@@ -5,7 +5,6 @@ const express =require('express')
 const mongoose = require('mongoose')
 
 const { createServer } = require('http')
-
 const port = process.env.PORT || 3000;
 
    /* for to validate and authentication*/

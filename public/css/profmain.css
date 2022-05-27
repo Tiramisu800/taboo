@@ -23,9 +23,9 @@ body{
 .infa{
 	background: #543eb5;
 	flex: 0 25%;
-	height: 450px;
+	height: 300px;
 	width: 225px ;
-	padding: 30px;
+	padding: 25px;
 	margin: 15px;
 	object-fit: cover;
 	object-position: center;
