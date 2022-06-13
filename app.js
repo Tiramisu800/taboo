@@ -141,7 +141,7 @@ app.delete('/logout', (req,res)=>{
 
 ///---MongoDB connect---///
 
-mongoose.connect('mongodb+srv://root:Zhak159*@cluster0.tcmgt.mongodb.net/reglog?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://root:Zhak159*@cluster0.1h8mm.mongodb.net/taboo?retryWrites=true&w=majority', {
     useNewUrlParser: true,
 }).then(()=>console.log('MongoDb connected'))
     .catch(e => console.log(e))
