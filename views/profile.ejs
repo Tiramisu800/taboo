@@ -59,19 +59,13 @@ border: 2px;
 <form action="/logout?_method=DELETE" method="POST">
     <div class="auth">
         <h1 style="color: #6f5acd">Hi, <%= name %> ^^</h1>
-        <div class="auth1">
-
-            <input type="name"  name="name" placeholder="Name">
-            <input type="name"  name="surname" placeholder="Surname">
-            <input type="number"  name="age" placeholder="Age">
-            <input type="number"  name="number" placeholder="Phone Number"><br>
-            <button CLASS="SAVE">SAVE</button>
+        <div class="auth">
             <button type="submit" class="authbtn">Log Out</button>
         </div>
-
-
-
     </div>
-
 </form>
+<div class="auth" style="object-position: center">
+    <a href="/test"><button type="submit" class="authbtn">Test yourself</button></a>
+</div>
+
 <%-include('footer')-%>
