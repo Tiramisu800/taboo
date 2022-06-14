@@ -119,6 +119,7 @@ app.post('/reg', checkNotAuthenticated, async (req,res)=>{
             const user = new User({
                 name: req.body.name,
                 email: req.body.email,
+                image: req.body.image,
                 password: hashedPassword
             })
 
@@ -133,9 +134,23 @@ app.post('/reg', checkNotAuthenticated, async (req,res)=>{
 
    //---Log out---//
 app.delete('/logout', (req,res)=>{
+    const userData = User.findById(req.params.id)
+
     req.logOut()
     res.redirect('/log')
 } )
+
+
+    //---User Profile---//
+app.get("/profile", (req,res)=>{
+    User.findById(req.params.id, (err,foundUser)=>{
+        if(err){
+            req.flash("error", "Something went wrong")
+            res.redirect("/")
+        }
+        res.render("user.ejs", {user: foundUser})
+    })
+})
 
 
 
