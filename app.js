@@ -29,6 +29,8 @@ const app = express()
 //Find users
 const initializePassport = require('./passport-config')
 const {check} = require("express-validator");
+const {locals} = require("express/lib/application");
+const res = require("express/lib/response");
 initializePassport(
     passport,
     async(email)=>{
@@ -77,7 +79,7 @@ app.get('/chef', (req, res) => {
 app.get('/musician', (req, res) => {
     res.render('musician.ejs');
 });
-app.get('/test', (req, res) => {
+app.get('/test',checkAuthenticated, (req, res) => {
     res.render('test.ejs');
 });
 app.get('/tryit', (req, res) => {
@@ -96,6 +98,7 @@ app.get('/reg',checkNotAuthenticated, (req,res)=>{
 })
 
 
+
    //---Login case---//
 app.post('/log',checkNotAuthenticated, passport.authenticate('local',{
     successRedirect: '/logout',
@@ -103,6 +106,16 @@ app.post('/log',checkNotAuthenticated, passport.authenticate('local',{
     failureFlash: true,
 })
 )
+
+app.post('/test',checkNotAuthenticated, (req, res)=>{if(!locals.session.loggedin){
+    res.redirect('/test')
+}
+else {
+    res.redirect('/log')
+}})
+
+
+
 
 
    //---Register case---//

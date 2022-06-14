@@ -47,33 +47,33 @@ var result = document.getElementById("result");
 var restart = document.getElementById("restart");
 
 // click event listeners for question 1
-q1a1.addEventListener('click', rosetta);
+q1a1.addEventListener('click', vidia);
 q1a1.addEventListener('click', disableQ1);
-q1a2.addEventListener('click', fawn);
+q1a2.addEventListener('click', tinkerBell);
 q1a2.addEventListener('click', disableQ1);
-q1a3.addEventListener('click', iredessa);
+q1a3.addEventListener('click', fawn);
 q1a3.addEventListener('click', disableQ1);
-q1a4.addEventListener('click', tinkerBell);
+q1a4.addEventListener('click', rosetta);
 q1a4.addEventListener('click', disableQ1);
-q1a5.addEventListener('click', silvermist);
+q1a5.addEventListener('click', iredessa);
 q1a5.addEventListener('click', disableQ1);
-q1a6.addEventListener('click', vidia);
+q1a6.addEventListener('click', tinkerBell);
 q1a6.addEventListener('click', disableQ1);
-q1a7.addEventListener('click', rosetta);
+q1a7.addEventListener('click', silvermist);
 q1a7.addEventListener('click', disableQ1);
 
 // click event listeners for question 2
-q2a1.addEventListener('click', rosetta);
+q2a1.addEventListener('click', tinkerBell);
 q2a1.addEventListener('click', disableQ2);
-q2a2.addEventListener('click', silvermist);
+q2a2.addEventListener('click', tinkerBell);
 q2a2.addEventListener('click', disableQ2);
-q2a3.addEventListener('click', tinkerBell);
+q2a3.addEventListener('click', iredessa);
 q2a3.addEventListener('click', disableQ2);
-q2a4.addEventListener('click', fawn);
+q2a4.addEventListener('click', silvermist);
 q2a4.addEventListener('click', disableQ2);
 q2a5.addEventListener('click', vidia);
 q2a5.addEventListener('click', disableQ2);
-q2a6.addEventListener('click', iredessa);
+q2a6.addEventListener('click', fawn);
 q2a6.addEventListener('click', disableQ2);
 
 // click event listeners for question 3
@@ -208,17 +208,17 @@ function doneAndResult(){
     if (questionsAnswered == 4){
         console.log("The quiz is done!");
         if (tinkerBellScore >= 2){
-            result.innerHTML = '<a href = "https://fairies.disney.com/tinker-bell">Programmer</a>';
+            result.innerHTML = '<a href = "/programmer">Programmer</a>';
         } else if (vidiaScore >= 2){
-            result.innerHTML = '<a href = "https://fairies.disney.com/vidia">Musician</a>';
+            result.innerHTML = '<a href = "/musician">Musician</a>';
         } else if (rosettaScore >= 2){
-            result.innerHTML = '<a href = "https://fairies.disney.com/rosetta">Chief</a>';
+            result.innerHTML = '<a href = "/chief">Chief</a>';
         } else if (fawnScore >= 2){
-            result.innerHTML = '<a href = "https://fairies.disney.com/fawn">Astronaut</a>';
+            result.innerHTML = '<a href = "/astronaut">Astronaut</a>';
         } else if (iredessaScore >= 2){
-            result.innerHTML = '<a href = "https://fairies.disney.com/iredessa">Iredessa!</a>';
+            result.innerHTML = '<a href = "/chemist">Chemist</a>';
         } else if (silvermistScore >= 2){
-            result.innerHTML = '<a href = "https://fairies.disney.com/silvermist">Silvermist!</a>';
+            result.innerHTML = '<a href = "/interpreter">Interpreter</a>';
         }
     }
 }
