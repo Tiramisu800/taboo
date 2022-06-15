@@ -1,10 +1,10 @@
 // score variables
-var tinkerBellScore = 0;
-var vidiaScore = 0;
-var rosettaScore = 0;
-var fawnScore = 0;
-var silvermistScore = 0;
-var iredessaScore = 0;
+var programmerScore = 0;
+var musicianScore = 0;
+var chiefScore = 0;
+var astronautScore = 0;
+var interpreterScore = 0;
+var doctorScore = 0;
 
 var questionsAnswered = 0;
 
@@ -47,61 +47,61 @@ var result = document.getElementById("result");
 var restart = document.getElementById("restart");
 
 // click event listeners for question 1
-q1a1.addEventListener('click', vidia);
+q1a1.addEventListener('click', musician);
 q1a1.addEventListener('click', disableQ1);
-q1a2.addEventListener('click', tinkerBell);
+q1a2.addEventListener('click', programmer);
 q1a2.addEventListener('click', disableQ1);
-q1a3.addEventListener('click', fawn);
+q1a3.addEventListener('click', astronaut);
 q1a3.addEventListener('click', disableQ1);
-q1a4.addEventListener('click', rosetta);
+q1a4.addEventListener('click', chief);
 q1a4.addEventListener('click', disableQ1);
-q1a5.addEventListener('click', iredessa);
+q1a5.addEventListener('click', doctor);
 q1a5.addEventListener('click', disableQ1);
-q1a6.addEventListener('click', tinkerBell);
+q1a6.addEventListener('click', programmer);
 q1a6.addEventListener('click', disableQ1);
-q1a7.addEventListener('click', silvermist);
+q1a7.addEventListener('click', interpreter);
 q1a7.addEventListener('click', disableQ1);
 
 // click event listeners for question 2
-q2a1.addEventListener('click', tinkerBell);
+q2a1.addEventListener('click', doctor);
 q2a1.addEventListener('click', disableQ2);
-q2a2.addEventListener('click', tinkerBell);
+q2a2.addEventListener('click', programmer);
 q2a2.addEventListener('click', disableQ2);
-q2a3.addEventListener('click', iredessa);
+q2a3.addEventListener('click', programmer);
 q2a3.addEventListener('click', disableQ2);
-q2a4.addEventListener('click', silvermist);
+q2a4.addEventListener('click', astronaut);
 q2a4.addEventListener('click', disableQ2);
-q2a5.addEventListener('click', vidia);
+q2a5.addEventListener('click', interpreter);
 q2a5.addEventListener('click', disableQ2);
-q2a6.addEventListener('click', fawn);
+q2a6.addEventListener('click', musician);
 q2a6.addEventListener('click', disableQ2);
 
 // click event listeners for question 3
-q3a1.addEventListener('click', fawn);
+q3a1.addEventListener('click', doctor);
 q3a1.addEventListener('click', disableQ3);
-q3a2.addEventListener('click', vidia);
+q3a2.addEventListener('click', musician);
 q3a2.addEventListener('click', disableQ3);
-q3a3.addEventListener('click', iredessa);
+q3a3.addEventListener('click', programmer);
 q3a3.addEventListener('click', disableQ3);
-q3a4.addEventListener('click', silvermist);
+q3a4.addEventListener('click', interpreter);
 q3a4.addEventListener('click', disableQ3);
-q3a5.addEventListener('click', tinkerBell);
+q3a5.addEventListener('click', programmer);
 q3a5.addEventListener('click', disableQ3);
-q3a6.addEventListener('click', rosetta);
+q3a6.addEventListener('click', chief);
 q3a6.addEventListener('click', disableQ3);
 
 // click event listeners for question 4
-q4a1.addEventListener('click', iredessa);
+q4a1.addEventListener('click', doctor);
 q4a1.addEventListener('click', disableQ4);
-q4a2.addEventListener('click', silvermist);
+q4a2.addEventListener('click', interpreter);
 q4a2.addEventListener('click', disableQ4);
-q4a3.addEventListener('click', vidia);
+q4a3.addEventListener('click', musician);
 q4a3.addEventListener('click', disableQ4);
-q4a4.addEventListener('click', fawn);
+q4a4.addEventListener('click', astronaut);
 q4a4.addEventListener('click', disableQ4);
-q4a5.addEventListener('click', rosetta);
+q4a5.addEventListener('click', chief);
 q4a5.addEventListener('click', disableQ4);
-q4a6.addEventListener('click', tinkerBell);
+q4a6.addEventListener('click', programmer);
 q4a6.addEventListener('click', disableQ4);
 
 
@@ -109,56 +109,56 @@ q4a6.addEventListener('click', disableQ4);
 restart.addEventListener('click', restartQuiz);
 
 // score functions
-function tinkerBell(){
-    tinkerBellScore += 1;
+function programmer(){
+    programmerScore += 1;
     questionsAnswered += 1;
 
-    console.log("questionsAnswered = " + questionsAnswered + "; tinkerBellScore = " + tinkerBellScore);
+    console.log("questionsAnswered = " + questionsAnswered + "; programmerScore = " + programmerScore);
 
     doneAndResult();
 }
 
-function vidia(){
-    vidiaScore += 1;
+function musician(){
+    musicianScore += 1;
     questionsAnswered += 1;
 
-    console.log("questionsAnswered = " + questionsAnswered + "; vidiaScore = " + vidiaScore);
+    console.log("questionsAnswered = " + questionsAnswered + "; musicianScore = " + musicianScore);
 
     doneAndResult();
 }
 
-function rosetta(){
-    rosettaScore += 1;
+function chief(){
+    chiefScore += 1;
     questionsAnswered += 1;
 
-    console.log("questionsAnswered = " + questionsAnswered + "; rosettaScore = " + rosettaScore);
+    console.log("questionsAnswered = " + questionsAnswered + "; chiefScore = " + chiefScore);
 
     doneAndResult();
 }
 
-function fawn(){
-    fawnScore += 1;
+function astronaut(){
+    astronautScore += 1;
     questionsAnswered += 1;
 
-    console.log("questionsAnswered = " + questionsAnswered + "; fawnScore = " + fawnScore);
+    console.log("questionsAnswered = " + questionsAnswered + "; astronautScore = " + astronautScore);
 
     doneAndResult();
 }
 
-function silvermist(){
-    silvermistScore += 1;
+function interpreter(){
+    interpreterScore += 1;
     questionsAnswered += 1;
 
-    console.log("questionsAnswered = " + questionsAnswered + "; silvermistScore = " + silvermistScore);
+    console.log("questionsAnswered = " + questionsAnswered + "; interpreterScore = " + interpreterScore);
 
     doneAndResult();
 }
 
-function iredessa(){
-    iredessaScore += 1;
+function doctor(){
+    doctorScore += 1;
     questionsAnswered += 1;
 
-    console.log("questionsAnswered = " + questionsAnswered + "; iredessaScore = " + iredessaScore);
+    console.log("questionsAnswered = " + questionsAnswered + "; doctorScore = " + doctorScore);
 
     doneAndResult();
 }
@@ -207,17 +207,17 @@ function disableQ4(){
 function doneAndResult(){
     if (questionsAnswered == 4){
         console.log("The quiz is done!");
-        if (tinkerBellScore >= 2){
+        if (programmerScore >= 2){
             result.innerHTML = '<a href = "/programmer">Programmer</a>';
-        } else if (vidiaScore >= 2){
+        } else if (musicianScore >= 2){
             result.innerHTML = '<a href = "/musician">Musician</a>';
-        } else if (rosettaScore >= 2){
+        } else if (chiefScore >= 2){
             result.innerHTML = '<a href = "/chief">Chief</a>';
-        } else if (fawnScore >= 2){
+        } else if (astronautScore >= 2){
             result.innerHTML = '<a href = "/astronaut">Astronaut</a>';
-        } else if (iredessaScore >= 2){
-            result.innerHTML = '<a href = "/chemist">Chemist</a>';
-        } else if (silvermistScore >= 2){
+        } else if (doctorScore >= 2){
+            result.innerHTML = '<a href = "/chemist">Doctor</a>';
+        } else if (interpreterScore >= 2){
             result.innerHTML = '<a href = "/interpreter">Interpreter</a>';
         }
     }
@@ -227,12 +227,12 @@ function doneAndResult(){
 function restartQuiz() {
     result.innerHTML = "...";
     questionsAnswered = 0;
-    tinkerBellScore = 0;
-    vidiaScore = 0;
-    fawnScore = 0;
-    rosettaScore = 0;
-    silvermistScore = 0;
-    iredessaScore = 0;
+    programmerScore = 0;
+    musicianScore = 0;
+    astronautScore = 0;
+    chiefScore = 0;
+    interpreterScore = 0;
+    doctorScore = 0;
 
     q1a1.disabled = false;
     q1a2.disabled = false;

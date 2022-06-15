@@ -1,0 +1,76 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tours</title>
+    <link rel="icon" href="img/l1.png">
+    <link rel="stylesheet" href="/css/profmain.css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        body{
+            background-color: #A2C3F4;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #e7a992, #8891f8, #87d2ef, #96fae0);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            height: 100vh;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1{
+
+            font-size: 50px;
+        }
+        .container1{
+            margin-bottom: 200px;
+        }
+    </style>
+</head>
+<%-include('header')-%>
+<body>
+<div class="container1">
+    <div class="detail-box">
+        <div class="detail-container">
+
+            <h1>
+                Tour page is not available yet
+            </h1>
+        </div>
+    </div>
+
+    <div class="img-box">
+        <img src="img/1.png" alt="">
+
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class='infa' id="one">
+       <img src="img/load.gif">
+        <h4>In process...</h4>
+    </div>
+
+    <div class='infa'>
+        <img src="img/load.gif">
+        <h4>In process...</h4>
+    </div>
+
+    <div class='infa'>
+        <img src="img/load.gif">
+        <h4>In process...</h4>
+    </div>
+</div>
+</body>
+    <br><br>
+<%-include('footer')-%>
