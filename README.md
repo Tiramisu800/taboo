@@ -1,7 +1,7 @@
 Make sure you have Node.js is installed.
 
 $ git clone ...
-$ cd career-test
+$ cd taboo
 $ npm install
 $ npm start
 
